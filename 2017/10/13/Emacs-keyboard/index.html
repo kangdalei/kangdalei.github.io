@@ -22,12 +22,12 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
   </script>
 
-  <meta name="description" content="Emacs的按键是出了名的难按. 以至于新手入门第一件事就是改键盘布局, 否则没法学下去. 参考: Effective Emacs（中文） 难道不是很奇怪吗? 为何”神的编辑器”如此古怪难用? 其实这主要是因为Emacs远远早于 现代PC机键盘而出现,它的快捷键不是在PC机键盘上设计的, 而是在早已消失的Lisp机键 盘上敲定的. (参见: Peter Seibel 《编程人生》 Guy Stee">
+  <meta name="description" content="Emacs的按键是出了名的难按. 以至于新手入门第一件事就是改键盘布局, 否则没法学下去. 参考: Effective Emacs（中文） 难道不是很奇怪吗? 为何&quot;神的编辑器&quot;如此古怪难用? 其实这主要是因为Emacs远远早于 现代PC机键盘而出现,它的快捷键不是在PC机键盘上设计的, 而是在早已消失的Lisp机键 盘上敲定的. (参见: Peter Seibel 《编程人生">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Emacs &amp; keyboard 按键二三事">
 <meta property="og:url" content="http://example.com/2017/10/13/Emacs-keyboard/index.html">
 <meta property="og:site_name" content="学而时习之">
-<meta property="og:description" content="Emacs的按键是出了名的难按. 以至于新手入门第一件事就是改键盘布局, 否则没法学下去. 参考: Effective Emacs（中文） 难道不是很奇怪吗? 为何”神的编辑器”如此古怪难用? 其实这主要是因为Emacs远远早于 现代PC机键盘而出现,它的快捷键不是在PC机键盘上设计的, 而是在早已消失的Lisp机键 盘上敲定的. (参见: Peter Seibel 《编程人生》 Guy Stee">
+<meta property="og:description" content="Emacs的按键是出了名的难按. 以至于新手入门第一件事就是改键盘布局, 否则没法学下去. 参考: Effective Emacs（中文） 难道不是很奇怪吗? 为何&quot;神的编辑器&quot;如此古怪难用? 其实这主要是因为Emacs远远早于 现代PC机键盘而出现,它的快捷键不是在PC机键盘上设计的, 而是在早已消失的Lisp机键 盘上敲定的. (参见: Peter Seibel 《编程人生">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/images/Space-cadet_keyboard.jpg">
 <meta property="article:published_time" content="2017-10-13T05:38:04.000Z">
@@ -182,7 +182,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%86%E5%8F%B2"><span class="nav-number">1.</span> <span class="nav-text">历史</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Meta%E9%94%AE"><span class="nav-number">2.</span> <span class="nav-text">Meta键</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%87%E8%AE%B0%E6%8C%89%E9%94%AE"><span class="nav-number">3.</span> <span class="nav-text">标记按键</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E5%91%BD%E4%BB%A4-C-u"><span class="nav-number">4.</span> <span class="nav-text">参数命令 C-u</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#M-w-%E5%92%8CQQ%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="nav-number">5.</span> <span class="nav-text">M-w 和QQ的快捷键</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lt-F1-gt-C-h-%E5%92%8C-Del"><span class="nav-number">6.</span> <span class="nav-text">&lt;F1&gt; C-h 和 Del</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B7%B3%E8%BD%AC%E5%8C%B9%E9%85%8D%E6%8B%AC%E5%8F%B7%E7%9A%84-C-M-b-%E5%92%8C-C-M-f"><span class="nav-number">7.</span> <span class="nav-text">跳转匹配括号的 C-M-b 和 C-M-f</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%91%E7%9A%84%E6%8C%89%E9%94%AE%E6%96%B9%E5%BC%8F"><span class="nav-number">8.</span> <span class="nav-text">我的按键方式</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%86%E5%8F%B2"><span class="nav-number">1.</span> <span class="nav-text">历史</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Meta%E9%94%AE"><span class="nav-number">2.</span> <span class="nav-text">Meta键</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%87%E8%AE%B0%E6%8C%89%E9%94%AE"><span class="nav-number">3.</span> <span class="nav-text">标记按键</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E5%91%BD%E4%BB%A4-C-u"><span class="nav-number">4.</span> <span class="nav-text">参数命令 C-u</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#M-w-%E5%92%8CQQ%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="nav-number">5.</span> <span class="nav-text">M-w 和QQ的快捷键</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#F1-C-h-%E5%92%8C-Del"><span class="nav-number">6.</span> <span class="nav-text">&lt;F1&gt; C-h 和 Del</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B7%B3%E8%BD%AC%E5%8C%B9%E9%85%8D%E6%8B%AC%E5%8F%B7%E7%9A%84-C-M-b-%E5%92%8C-C-M-f"><span class="nav-number">7.</span> <span class="nav-text">跳转匹配括号的 C-M-b 和 C-M-f</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%91%E7%9A%84%E6%8C%89%E9%94%AE%E6%96%B9%E5%BC%8F"><span class="nav-number">8.</span> <span class="nav-text">我的按键方式</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -196,7 +196,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -281,75 +281,81 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>Emacs的按键是出了名的难按. 以至于新手入门第一件事就是改键盘布局,
+        <p>Emacs的按键是出了名的难按. 以至于新手入门第一件事就是改键盘布局,<br>
 否则没法学下去. 参考: Effective Emacs（中文）</p>
-<p>难道不是很奇怪吗? 为何”神的编辑器”如此古怪难用? 其实这主要是因为Emacs远远早于
-现代PC机键盘而出现,它的快捷键不是在PC机键盘上设计的, 而是在早已消失的Lisp机键
+<p>难道不是很奇怪吗? 为何&quot;神的编辑器&quot;如此古怪难用? 其实这主要是因为Emacs远远早于<br>
+现代PC机键盘而出现,它的快捷键不是在PC机键盘上设计的, 而是在早已消失的Lisp机键<br>
 盘上敲定的. (参见: Peter Seibel 《编程人生》 Guy Steele 访谈篇)</p>
-<p><img src="/images/Space-cadet_keyboard.jpg"></p>
+<p><img src="/images/Space-cadet_keyboard.jpg" alt=""></p>
 <p>Space-Cadet~keyboard~-2m.jpg</p>
 <p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Space-cadet_keyboard">https://en.wikipedia.org/wiki/Space-cadet_keyboard</a></p>
 <a id="more"></a>
-<h2 id="历史"><a href="#历史" class="headerlink" title="历史"></a>历史</h2><p>李杀写过一篇 <a target="_blank" rel="noopener" href="http://ergoemacs.org/emacs/emacs_kb_shortcuts_pain.html">Why Emacs’s Keyboard Shortcuts are
-Painful</a>.
-可以看到当时lisp机键盘上, Ctrl键在空格键两旁,
-用强壮的大拇指往回轻轻一勾, 即可. 原则是, 如果要按左边的键, 比如a,
+<h2 id="历史">历史</h2>
+<p>李杀写过一篇 <a target="_blank" rel="noopener" href="http://ergoemacs.org/emacs/emacs_kb_shortcuts_pain.html">Why Emacs’s Keyboard Shortcuts are<br>
+Painful</a>.<br>
+可以看到当时lisp机键盘上, Ctrl键在空格键两旁,<br>
+用强壮的大拇指往回轻轻一勾, 即可. 原则是, 如果要按左边的键, 比如a,<br>
 就按右边Ctrl键, 双手配合. 反之亦然.</p>
-<h2 id="Meta键"><a href="#Meta键" class="headerlink" title="Meta键"></a>Meta键</h2><p>wikipedia : <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Meta_key">Meta key</a></p>
-<p>Meta键也是以前Lisp机键盘上的修饰键, 现在只有用其他键来仿真.
+<h2 id="Meta键">Meta键</h2>
+<p>wikipedia : <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Meta_key">Meta key</a></p>
+<p>Meta键也是以前Lisp机键盘上的修饰键, 现在只有用其他键来仿真.<br>
 比如PC机上的:</p>
 <ul>
-<li>Alt键 仿真Meta键, 一般都能很好工作. 比如, M-x 就是按住Alt键,
+<li>Alt键 仿真Meta键, 一般都能很好工作. 比如, M-x 就是按住Alt键,<br>
 同时按住x键.</li>
 <li>ESC键 按下ESC键, 松开, 表示按了meta键, 然后再按其他键.</li>
-<li>Ctrl-[ 可以来代替 Esc 键。如果远程运行Emacs，而终端又无法使用 Esc 和
-Alt 键，这种方法可以解燃眉之急。因为 ^[
-就是在终端输入ESC键值(0x1B)方法. 在我的MobaXterm~Personal上~, Ctrl-3
+<li>Ctrl-[ 可以来代替 Esc 键。如果远程运行Emacs，而终端又无法使用 Esc 和<br>
+Alt 键，这种方法可以解燃眉之急。因为 ^[<br>
+就是在终端输入ESC键值(0x1B)方法. 在我的MobaXterm~Personal上~, Ctrl-3<br>
 也可以输入ESC键值(0x1B).</li>
 </ul>
 <p>大家可以在终端用命令</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">showkey -a</span><br></pre></td></tr></table></figure>
-
 <p>来查看各种修饰键搭配按键的输入值.</p>
-<h2 id="标记按键"><a href="#标记按键" class="headerlink" title="标记按键"></a>标记按键</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">M-x set-mark-command</span><br></pre></td></tr></table></figure>
-
-<p>标记位置命令是一个非常频繁使用的命令.
-Emacs默认把这个命令绑定到了Ctrl-SPC和Ctrl-@. 但是对中文用户来说,
-Ctrl-SPC一般已被输入法占用, 而Ctrl-@又太难按,
+<h2 id="标记按键">标记按键</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">M-x set-mark-command</span><br></pre></td></tr></table></figure>
+<p>标记位置命令是一个非常频繁使用的命令.<br>
+Emacs默认把这个命令绑定到了Ctrl-SPC和Ctrl-@. 但是对中文用户来说,<br>
+Ctrl-SPC一般已被输入法占用, 而Ctrl-@又太难按,<br>
 需要三根手指极其别扭的姿势去按.</p>
 <p>常见做法是把这个命令绑定到其他按键, 比如:</p>
-<p>(global-set-key (kbd “C-;”) ‘set-mark-command)</p>
-<p>但是设计者为何要把高频命令分配到 C-@ 呢? 因为在终端上, C-@ 只需按 Ctrl-2
-即可, 不需要同时按Shift键. 只是如今的GUI界面, 系统区分了C-@和C-2,
+<p>(global-set-key (kbd “C-;”) 'set-mark-command)</p>
+<p>但是设计者为何要把高频命令分配到 C-@ 呢? 因为在终端上, C-@ 只需按 Ctrl-2<br>
+即可, 不需要同时按Shift键. 只是如今的GUI界面, 系统区分了C-@和C-2,<br>
 才出现了难按的问题.</p>
-<p>而且, 在终端上C-; 这种按键方式是被忽略的, 系统不予相应.
+<p>而且, 在终端上C-; 这种按键方式是被忽略的, 系统不予相应.<br>
 所以之前的键绑定命令只能工作在GUI版本上.</p>
-<h2 id="参数命令-C-u"><a href="#参数命令-C-u" class="headerlink" title="参数命令 C-u"></a>参数命令 C-u</h2><blockquote>
-<p>C-u
+<h2 id="参数命令-C-u">参数命令 C-u</h2>
+<blockquote>
+<p>C-u<br>
 是一个通用参数命令，后面接一个数字和一个命令。它将按某个次数多次运行特定的命令。</p>
 </blockquote>
-<p>其实在GUI版本里, 默认情况下, 你直接按Ctrl键或者Alt键, 同时按一个数字,
+<p>其实在GUI版本里, 默认情况下, 你直接按Ctrl键或者Alt键, 同时按一个数字,<br>
 也可以达到C-u的效果.</p>
-<p>比如删除到行首的命令 `C-u 0 C-k` 比较啰嗦. 其实按 `C-0 C-k` 即可.
+<p>比如删除到行首的命令 `C-u 0 C-k` 比较啰嗦. 其实按 `C-0 C-k` 即可.<br>
 实际按键时, 按住Ctrl键不放, 分别按下0和k.</p>
-<p>但是, 在终端下(不是虚拟终端), 这种按法就失灵了.
+<p>但是, 在终端下(不是虚拟终端), 这种按法就失灵了.<br>
 因为系统把修饰键+数字键解释为别的键值.</p>
-<h2 id="M-w-和QQ的快捷键"><a href="#M-w-和QQ的快捷键" class="headerlink" title="M-w 和QQ的快捷键"></a>M-w 和QQ的快捷键</h2><p>如果运行Emacs的时候同时开着QQ, 会发现Alt-w键失灵.
-因为Alt-w也是QQ的默认快捷键, 被QQ提前拦截了. 可以在QQ上取消这个快捷键.
+<h2 id="M-w-和QQ的快捷键">M-w 和QQ的快捷键</h2>
+<p>如果运行Emacs的时候同时开着QQ, 会发现Alt-w键失灵.<br>
+因为Alt-w也是QQ的默认快捷键, 被QQ提前拦截了. 可以在QQ上取消这个快捷键.<br>
 腾讯新推出的TIM上也有这个默认快捷键, 但是目前却没有取消的方法.</p>
-<h2 id="lt-F1-gt-C-h-和-Del"><a href="#lt-F1-gt-C-h-和-Del" class="headerlink" title="&lt;F1&gt; C-h 和 Del"></a>&lt;F1&gt; C-h 和 Del</h2><p>如果在终端上发现C-h失灵, 多半是因为C-h被绑定到了主机的erase信号上,
+<h2 id="F1-C-h-和-Del">&lt;F1&gt; C-h 和 Del</h2>
+<p>如果在终端上发现C-h失灵, 多半是因为C-h被绑定到了主机的erase信号上,<br>
 变成了del键. 可以用&lt;F1&gt;键代替.</p>
-<h2 id="跳转匹配括号的-C-M-b-和-C-M-f"><a href="#跳转匹配括号的-C-M-b-和-C-M-f" class="headerlink" title="跳转匹配括号的 C-M-b 和 C-M-f"></a>跳转匹配括号的 C-M-b 和 C-M-f</h2><p>这种组合按键, Ctrl-Alt-f 可以工作, Ctrl-Alt-b 却失灵. 这时可以先按
+<h2 id="跳转匹配括号的-C-M-b-和-C-M-f">跳转匹配括号的 C-M-b 和 C-M-f</h2>
+<p>这种组合按键, Ctrl-Alt-f 可以工作, Ctrl-Alt-b 却失灵. 这时可以先按<br>
 ESC键, 松开, 然后再按C-b.</p>
-<h2 id="我的按键方式"><a href="#我的按键方式" class="headerlink" title="我的按键方式"></a>我的按键方式</h2><p>我个人把空格右边的Alt键和Ctrl键互换位置. 按Ctrl键时, 右手大拇指回勾.
-按Alt键时, 左手大拇指回勾. 再装上smex插件. 常用命令用键绑定,
-不常用的命令直接M-x, 输入命令的头几个字母后, smex插件会智能提示命令名,
+<h2 id="我的按键方式">我的按键方式</h2>
+<p>我个人把空格右边的Alt键和Ctrl键互换位置. 按Ctrl键时, 右手大拇指回勾.<br>
+按Alt键时, 左手大拇指回勾. 再装上smex插件. 常用命令用键绑定,<br>
+不常用的命令直接M-x, 输入命令的头几个字母后, smex插件会智能提示命令名,<br>
 如果第一个就是你想输入的命令, 直接回车, 不用把命令敲全.</p>
-<p>网上常见把左下角Ctrl键和Caps Lock键互换位置, 我并不看好.
-因为Ctrl键是组合键, C-a不是一样别扭吗?
-纤细的小拇指不适合这种频繁的组合按键工作. Vim党把Esc键放到Caps
+<p>网上常见把左下角Ctrl键和Caps Lock键互换位置, 我并不看好.<br>
+因为Ctrl键是组合键, C-a不是一样别扭吗?<br>
+纤细的小拇指不适合这种频繁的组合按键工作. Vim党把Esc键放到Caps<br>
 Lock键那里没问题, 只单独按一次抬手即可, 不牵扯组合按键.</p>
-<p>还有一种用手掌去压左下角和右下角Ctrl键的招法.
+<p>还有一种用手掌去压左下角和右下角Ctrl键的招法.<br>
 可是如果碰到笔记本那种按键是平的键盘, 就失灵了.</p>
 
     </div>

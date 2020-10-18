@@ -22,12 +22,12 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
   </script>
 
-  <meta name="description" content="起源 有时候为了学好Linux, 得要懂一些Unix考古学. 比如为什么Emacs的默认快捷键那么难按, 又比如烦人的换行符 \r和\n, 以及这次的^H ^? ^[[3\~.">
+  <meta name="description" content="起源有时候为了学好Linux, 得要懂一些Unix考古学. 比如为什么Emacs的默认快捷键那么难按, 又比如烦人的换行符 \r和\n, 以及这次的^H ^? ^[[3\~.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux命令行下的退格键">
 <meta property="og:url" content="http://example.com/2017/10/10/Linux-cli-backspace/index.html">
 <meta property="og:site_name" content="学而时习之">
-<meta property="og:description" content="起源 有时候为了学好Linux, 得要懂一些Unix考古学. 比如为什么Emacs的默认快捷键那么难按, 又比如烦人的换行符 \r和\n, 以及这次的^H ^? ^[[3\~.">
+<meta property="og:description" content="起源有时候为了学好Linux, 得要懂一些Unix考古学. 比如为什么Emacs的默认快捷键那么难按, 又比如烦人的换行符 \r和\n, 以及这次的^H ^? ^[[3\~.">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2017-10-10T07:19:49.000Z">
 <meta property="article:modified_time" content="2020-10-18T07:19:49.000Z">
@@ -180,7 +180,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">起源</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">显示按键的ASCII码命令 showkey -a</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">Emacs的C-h和^H</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">4.</span> <span class="nav-text">Xshell 5下的特点</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B5%B7%E6%BA%90"><span class="nav-number">1.</span> <span class="nav-text">起源</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%98%BE%E7%A4%BA%E6%8C%89%E9%94%AE%E7%9A%84ASCII%E7%A0%81%E5%91%BD%E4%BB%A4-showkey-a"><span class="nav-number">2.</span> <span class="nav-text">显示按键的ASCII码命令 showkey -a</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Emacs%E7%9A%84C-h%E5%92%8C-H"><span class="nav-number">3.</span> <span class="nav-text">Emacs的C-h和^H</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Xshell-5%E4%B8%8B%E7%9A%84%E7%89%B9%E7%82%B9"><span class="nav-number">4.</span> <span class="nav-text">Xshell 5下的特点</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -279,15 +279,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1>起源</h1>
-<p>有时候为了学好Linux, 得要懂一些Unix考古学.<br>
-比如为什么Emacs的默认快捷键那么难按, 又比如烦人的换行符 <code>\r</code>和<code>\n</code>,<br>
+        <h1 id="起源"><a href="#起源" class="headerlink" title="起源"></a>起源</h1><p>有时候为了学好Linux, 得要懂一些Unix考古学.
+比如为什么Emacs的默认快捷键那么难按, 又比如烦人的换行符 <code>\r</code>和<code>\n</code>,
 以及这次的<code>^H</code> <code>^?</code> <code>^[[3\~</code>.</p>
 <a id="more"></a>
-<p>目前我看到讲考古学讲得最好的书是《UNIX&amp;LINUX大学教程》(“Harley Hahn’s<br>
-Guide to Unix and Linux”, 作者:Harley Hahn). 书中第七章 Unix键盘使用,<br>
+
+<p>目前我看到讲考古学讲得最好的书是《UNIX&amp;LINUX大学教程》(“Harley Hahn’s
+Guide to Unix and Linux”, 作者:Harley Hahn). 书中第七章 Unix键盘使用,
 讲述了<code>^H </code> <code>^?</code> 的来龙去脉, 但是没有包含 <code>^[[3~</code>.</p>
-<p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/ASCII">wikipedia</a><br>
+<p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/ASCII">wikipedia</a>
 上列举了各ASCII码的二进制\十六进制\终端输入\C语言表示方法.</p>
 <p>简单来说,</p>
 <table border="1">
@@ -316,33 +316,31 @@ Guide to Unix and Linux”, 作者:Harley Hahn). 书中第七章 Unix键盘使�
 <td> VT220时代, PC机键盘上的Delete键   </td>
 </tr>
 </table>
+
 <p><a target="_blank" rel="noopener" href="http://www.skywind.me/blog/archives/1857">参考skywind: Vim 里如何映射 CTRL-h 为 left ?</a></p>
-<p>Linux上erase信号表示删除最后键入的字符. 这个信号即可以绑定到终端的<code>^H</code>上,<br>
-也可以绑定到终端的<code>^?</code>上. (甚至随便你喜欢的哪个键. )<br>
+<p>Linux上erase信号表示删除最后键入的字符. 这个信号即可以绑定到终端的<code>^H</code>上,
+也可以绑定到终端的<code>^?</code>上. (甚至随便你喜欢的哪个键. )
 至于具体绑定在终端哪个键值上,终端上输入 <code>stty -a</code> 可以看到.</p>
-<h1>显示按键的ASCII码命令 showkey -a</h1>
-<p>在终端里面输入 showkey -a 然后输入按键,<br>
+<h1 id="显示按键的ASCII码命令-showkey-a"><a href="#显示按键的ASCII码命令-showkey-a" class="headerlink" title="显示按键的ASCII码命令 showkey -a"></a>显示按键的ASCII码命令 showkey -a</h1><p>在终端里面输入 showkey -a 然后输入按键,
 可以得到这个按键的ASCII码和二进制,十六进制表示.输入CTRL+D 结束.</p>
-<p>可以自行实验一下自己键盘上的Backspace、CTRL+Backspace、CTRL+H、Delete<br>
+<p>可以自行实验一下自己键盘上的Backspace、CTRL+Backspace、CTRL+H、Delete
 都是什么值.</p>
-<p>使用远程登录工具的一个常见问题就是远程系统上erase信号和本地键盘Backspace键不匹配,<br>
+<p>使用远程登录工具的一个常见问题就是远程系统上erase信号和本地键盘Backspace键不匹配,
 本来是想删除前一个字符, 屏幕上却输入了^H.</p>
-<p>这篇文章 ( <a target="_blank" rel="noopener" href="https://www.zhihu.com/question/23550774/answer/132576876">https://www.zhihu.com/question/23550774/answer/132576876</a> )<br>
+<p>这篇文章 ( <a target="_blank" rel="noopener" href="https://www.zhihu.com/question/23550774/answer/132576876">https://www.zhihu.com/question/23550774/answer/132576876</a> )
 讲述了各终端模拟器修改Backspace键的键码方法.</p>
 <p>更改一下终端的erase信号绑定值也是一种方法: <code>stty erase ^H</code> 或者 <code>stty erase ^?</code></p>
-<h1>Emacs的C-h和^H</h1>
-<p>远程登录工具MobaXterm 9.1 默认也是把erase信号绑定到了<code>^H</code>,<br>
+<h1 id="Emacs的C-h和-H"><a href="#Emacs的C-h和-H" class="headerlink" title="Emacs的C-h和^H"></a>Emacs的C-h和^H</h1><p>远程登录工具MobaXterm 9.1 默认也是把erase信号绑定到了<code>^H</code>,
 Backspace默认也发出<code>^H</code>键. CTRL+H键也发送<code>^H</code>, 可以删除前面的字符.</p>
-<p>但是如果在终端里使用Emacs, 就会发现它的帮助前缀键 C-h 和 <code>^H</code> 冲突,<br>
+<p>但是如果在终端里使用Emacs, 就会发现它的帮助前缀键 C-h 和 <code>^H</code> 冲突,
 按CTRL+H 是删除字符. 这个时候只能按&lt;F1&gt;键来代替C-h</p>
-<p>解决办法或者在Emacs的配置文件里重新键绑定, 或者stty erase <code>^?</code><br>
-然后把Backspace键改为 <code>^?</code> ( MobaXterm里就是取消勾选Backspace的<code>^H</code>设置,<br>
+<p>解决办法或者在Emacs的配置文件里重新键绑定, 或者stty erase <code>^?</code>
+然后把Backspace键改为 <code>^?</code> ( MobaXterm里就是取消勾选Backspace的<code>^H</code>设置,
 Backspace键就会变为<code>^?</code>. )</p>
-<h1>Xshell 5下的特点</h1>
-<p><strong>Xshell刚爆出有后门漏洞, 需要升级到最新版.</strong></p>
-<p>Xshell 5默认erase绑定到 <code>^?</code>, 但是它有个有趣的设置.<br>
-如果键盘功能键类型设置为默认状态, Backspace键序列选<code>^?</code>, 或者<code>^H</code>,<br>
-都可以起删除前面字符的作用. CRTL+H键也能删除字符. 看起来它是自动调整了.<br>
+<h1 id="Xshell-5下的特点"><a href="#Xshell-5下的特点" class="headerlink" title="Xshell 5下的特点"></a>Xshell 5下的特点</h1><p><strong>Xshell刚爆出有后门漏洞, 需要升级到最新版.</strong></p>
+<p>Xshell 5默认erase绑定到 <code>^?</code>, 但是它有个有趣的设置.
+如果键盘功能键类型设置为默认状态, Backspace键序列选<code>^?</code>, 或者<code>^H</code>,
+都可以起删除前面字符的作用. CRTL+H键也能删除字符. 看起来它是自动调整了.
 而且在它里面使用Emacs, CRTL+H键又恢复成了帮助前缀键, 而不是删除键.</p>
 
     </div>

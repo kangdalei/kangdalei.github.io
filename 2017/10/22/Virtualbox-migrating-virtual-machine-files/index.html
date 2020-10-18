@@ -168,7 +168,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -180,6 +180,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%AC%E6%9C%BA%E5%86%85%E8%BF%81%E7%A7%BB"><span class="nav-number">1.</span> <span class="nav-text">本机内迁移</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%8D%E5%90%8C%E6%9C%BA%E5%99%A8%E4%B8%8A%E5%A4%8D%E5%88%B6"><span class="nav-number">2.</span> <span class="nav-text">不同机器上复制</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -278,30 +279,30 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>本质上搞定<br>
-<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Universally_unique_identifier">UUID</a><br>
-。VirtualBox新建虚拟磁盘时会给它分配一个独一无二的UUID，<br>
+        <p>本质上搞定
+<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Universally_unique_identifier">UUID</a>
+。VirtualBox新建虚拟磁盘时会给它分配一个独一无二的UUID，
 以后迁移时需要为这个虚拟磁盘文件新建一个UUID。</p>
 <a id="more"></a>
+
 <ol>
-<li>本机内迁移<br>
-=============</li>
+<li><h1 id="本机内迁移"><a href="#本机内迁移" class="headerlink" title="本机内迁移"></a>本机内迁移</h1></li>
 </ol>
 <p>一般用于更改默认安装路径， 把以前安装的虚拟机存储文件迁移到新目录。</p>
 <p>使用 `VBoxManage.exe clonehd` 命令。</p>
 <p>原虚拟磁盘位置： “C:\Users\lei\VirtualBoxVMs\debian9-64\debian.vmdk”</p>
-<p>迁移的目标地址：“D:\virtualbox\debian”</p>
-<p>假设 VirtualBox 安装在 “C:\ProgramFiles\Oracle\VirtualBox”， 此目录下有<br>
+<p>迁移的目标地址：”D:\virtualbox\debian”</p>
+<p>假设 VirtualBox 安装在 “C:\ProgramFiles\Oracle\VirtualBox”， 此目录下有
 VBoxManage.exe 这个文件。</p>
 <p>在该目录运行命令行 ( 在文件夹空白地方按Shift键和鼠标右键, 有快捷菜单 )</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Program Files\Oracle\VirtualBox&gt;VBoxManage.exe clonehd &quot;C:\Users\lei\VirtualBox VMs\debian9-64\debian.vmdk&quot; &quot;D:\virtualbox\debian\debian.vmdk&quot;</span><br></pre></td></tr></table></figure>
+
 <p>OK， 会有进度提示。然后新建虚拟机时选择已有虚拟磁盘即可。</p>
 <ol start="2">
-<li>不同机器上复制<br>
-=================</li>
+<li><h1 id="不同机器上复制"><a href="#不同机器上复制" class="headerlink" title="不同机器上复制"></a>不同机器上复制</h1></li>
 </ol>
 <p>使用 `VBoxManage.exe internalcommands sethduuid` 命令.</p>
-<p>从其他机器上复制过来的虚拟磁盘文件. 假设放在了<br>
+<p>从其他机器上复制过来的虚拟磁盘文件. 假设放在了
 “D:\virtualbox\debian\debian.vmdk”</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Program Files\Oracle\VirtualBox&gt;VBoxManage.exe internalcommands sethduuid &quot;D:\virtualbox\debian\debian.vmdk&quot;</span><br></pre></td></tr></table></figure>
 

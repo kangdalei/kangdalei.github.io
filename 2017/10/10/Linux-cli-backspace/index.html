@@ -22,12 +22,12 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
   </script>
 
-  <meta name="description" content="起源有时候为了学好Linux, 得要懂一些Unix考古学. 比如为什么Emacs的默认快捷键那么难按, 又比如烦人的换行符 \r和\n, 以及这次的^H ^? ^[[3\~.">
+  <meta name="description" content="起源有时候为了学好Linux, 得要懂一些Unix考古学. 比如为什么Emacs的默认快捷键那么难按, 又比如烦人的换行符 \r和\n, 以及这次的^H ^? ^[[3~ (ESC[3~).">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux命令行下的退格键">
 <meta property="og:url" content="http://example.com/2017/10/10/Linux-cli-backspace/index.html">
 <meta property="og:site_name" content="学而时习之">
-<meta property="og:description" content="起源有时候为了学好Linux, 得要懂一些Unix考古学. 比如为什么Emacs的默认快捷键那么难按, 又比如烦人的换行符 \r和\n, 以及这次的^H ^? ^[[3\~.">
+<meta property="og:description" content="起源有时候为了学好Linux, 得要懂一些Unix考古学. 比如为什么Emacs的默认快捷键那么难按, 又比如烦人的换行符 \r和\n, 以及这次的^H ^? ^[[3~ (ESC[3~).">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2017-10-10T07:19:49.000Z">
 <meta property="article:modified_time" content="2020-10-18T07:19:49.000Z">
@@ -281,7 +281,7 @@
     <div class="post-body" itemprop="articleBody">
         <h1 id="起源"><a href="#起源" class="headerlink" title="起源"></a>起源</h1><p>有时候为了学好Linux, 得要懂一些Unix考古学.
 比如为什么Emacs的默认快捷键那么难按, 又比如烦人的换行符 <code>\r</code>和<code>\n</code>,
-以及这次的<code>^H</code> <code>^?</code> <code>^[[3\~</code>.</p>
+以及这次的<code>^H</code> <code>^?</code> <code>^[[3~</code> (<code>ESC[3~</code>).</p>
 <a id="more"></a>
 
 <p>目前我看到讲考古学讲得最好的书是《UNIX&amp;LINUX大学教程》(“Harley Hahn’s

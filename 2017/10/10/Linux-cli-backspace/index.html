@@ -286,7 +286,7 @@
 
 <p>目前我看到讲考古学讲得最好的书是《UNIX&amp;LINUX大学教程》(“Harley Hahn’s
 Guide to Unix and Linux”, 作者:Harley Hahn). 书中第七章 Unix键盘使用,
-讲述了<code>^H </code> <code>^?</code> 的来龙去脉.</p>
+讲述了<code>^H </code> <code>^?</code> 的来龙去脉, 但是没有包含 <code>^[[3~</code>.</p>
 <p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/ASCII">wikipedia</a>
 上列举了各ASCII码的二进制\十六进制\终端输入\C语言表示方法.</p>
 <p>简单来说,</p>
@@ -307,17 +307,17 @@ Guide to Unix and Linux”, 作者:Harley Hahn). 书中第七章 Unix键盘使�
 <td>^?</td>
 <td>Del</td>
 <td>0X7F</td>
-<td>只是一种表示方法,按CTRL+? 键得不到这个键值. 有时可以通过PC机键盘按 CTRL+Backspace键得到这个值 </td>
+<td>只是一种表示方法,按CTRL+? 键得不到这个键值.<br> 有时可以通过PC机键盘按 CTRL+Backspace键得到这个值 </td>
 </tr>
 <tr>
 <td> ^[[3~</td>
 <td>Delete</td>
 <td>0X1b, 0X5b, 0X33, 0X7e 四字节 </td>
-<td>r非ASCII码.PC机键盘上的Delete键       </td>
+<td> VT220时代, PC机键盘上的Delete键   </td>
 </tr>
 </table>
 
-
+<p><a target="_blank" rel="noopener" href="http://www.skywind.me/blog/archives/1857">参考skywind: Vim 里如何映射 CTRL-h 为 left ?</a></p>
 <p>Linux上erase信号表示删除最后键入的字符. 这个信号即可以绑定到终端的<code>^H</code>上,
 也可以绑定到终端的<code>^?</code>上. (甚至随便你喜欢的哪个键. )
 至于具体绑定在终端哪个键值上,终端上输入 <code>stty -a</code> 可以看到.</p>
@@ -330,16 +330,16 @@ Guide to Unix and Linux”, 作者:Harley Hahn). 书中第七章 Unix键盘使�
 <p>这篇文章 ( <a target="_blank" rel="noopener" href="https://www.zhihu.com/question/23550774/answer/132576876">https://www.zhihu.com/question/23550774/answer/132576876</a> )
 讲述了各终端模拟器修改Backspace键的键码方法.</p>
 <p>更改一下终端的erase信号绑定值也是一种方法: <code>stty erase ^H</code> 或者 <code>stty erase ^?</code></p>
-<h1 id="Emacs的C-h和-H"><a href="#Emacs的C-h和-H" class="headerlink" title="Emacs的C-h和^H"></a>Emacs的C-h和^H</h1><p>远程登录工具MobaXterm 9.1 默认也是把erase信号绑定到了^H,
-Backspace默认也发出^H键. CTRL+H键也发送^H, 可以删除前面的字符.</p>
-<p>但是如果在终端里使用Emacs, 就会发现它的帮助前缀键 C-h 和 ^H 冲突,
+<h1 id="Emacs的C-h和-H"><a href="#Emacs的C-h和-H" class="headerlink" title="Emacs的C-h和^H"></a>Emacs的C-h和^H</h1><p>远程登录工具MobaXterm 9.1 默认也是把erase信号绑定到了<code>^H</code>,
+Backspace默认也发出<code>^H</code>键. CTRL+H键也发送<code>^H</code>, 可以删除前面的字符.</p>
+<p>但是如果在终端里使用Emacs, 就会发现它的帮助前缀键 C-h 和 <code>^H</code> 冲突,
 按CTRL+H 是删除字符. 这个时候只能按&lt;F1&gt;键来代替C-h</p>
 <p>解决办法或者在Emacs的配置文件里重新键绑定, 或者stty erase <code>^?</code>
-然后把Backspace键改为 <code>^?</code> ( MobaXterm里就是取消勾选Backspace的^H设置,
+然后把Backspace键改为 <code>^?</code> ( MobaXterm里就是取消勾选Backspace的<code>^H</code>设置,
 Backspace键就会变为<code>^?</code>. )</p>
 <h1 id="Xshell-5下的特点"><a href="#Xshell-5下的特点" class="headerlink" title="Xshell 5下的特点"></a>Xshell 5下的特点</h1><p><strong>Xshell刚爆出有后门漏洞, 需要升级到最新版.</strong></p>
 <p>Xshell 5默认erase绑定到 <code>^?</code>, 但是它有个有趣的设置.
-如果键盘功能键类型设置为默认状态, Backspace键序列选<code>^?</code>, 或者^H,
+如果键盘功能键类型设置为默认状态, Backspace键序列选<code>^?</code>, 或者<code>^H</code>,
 都可以起删除前面字符的作用. CRTL+H键也能删除字符. 看起来它是自动调整了.
 而且在它里面使用Emacs, CRTL+H键又恢复成了帮助前缀键, 而不是删除键.</p>
 

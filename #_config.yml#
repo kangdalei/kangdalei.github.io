@@ -124,10 +124,9 @@ deploy:
   branch: master
 
 # 使用插件 备份源文件
-# https://blog.csdn.net/qq_41793001/article/details/103151182
 # npm install hexo-git-backup --save
 # hexo b   hexo backup
-# 对应的仓库创建 backup 分支
+# 对应的仓库创建 backup 分支https://blog.csdn.net/qq_41793001/article/details/103151182
 backup:
     type: git
     repository:

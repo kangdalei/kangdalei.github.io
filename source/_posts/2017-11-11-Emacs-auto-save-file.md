@@ -3,6 +3,7 @@ title: Emacs auto save file
 date: 2017-11-11 14:32:16
 updated: 2020-10-17 14:32:16
 tags:
+    - emacs
 categories:
 description: Emacs的文件备份机制
 ---

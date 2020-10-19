@@ -281,40 +281,40 @@
     <div class="post-body" itemprop="articleBody">
         <p>Emacs 的字体设置比较繁杂, 还能对不同的字符集设置不同的字体, 一些技巧记录于此.</p>
 <a id="more"></a>
-
-<h2 id="调出字体设置菜单"><a href="#调出字体设置菜单" class="headerlink" title="调出字体设置菜单"></a>调出字体设置菜单</h2><ol>
+<h2 id="调出字体设置菜单">调出字体设置菜单</h2>
+<ol>
 <li>Shift+鼠标左键, 对当前buffer的字体, 改变、增大、减小、恢复默认.</li>
 </ol>
 <blockquote>
-<p><S-down-mouse-1> (translated from <S-mouse-1>) at that spot runs the command
-mouse-appearance-menu (found in global-map), which is an interactive compiled
-Lisp function in ‘mouse.el’.</p>
-<p>It is bound to <S-down-mouse-1>.</p>
+<p>&lt;S-down-mouse-1&gt; (translated from &lt;S-mouse-1&gt;) at that spot runs the command<br>
+mouse-appearance-menu (found in global-map), which is an interactive<br>
+compiled Lisp function in ‘mouse.el’.</p>
+<p>It is bound to &lt;S-down-mouse-1&gt;.</p>
 <p>(mouse-appearance-menu EVENT)</p>
 <p>Show a menu for changing the default face in the current buffer.</p>
 </blockquote>
 <ol start="2">
 <li>菜单 “Options-&gt; Set Default Font”</li>
 </ol>
-<h2 id="中英文只设置一种字体"><a href="#中英文只设置一种字体" class="headerlink" title="中英文只设置一种字体"></a>中英文只设置一种字体</h2><p>把光标放到你所在的字体上，命令 <code>M-x describe-font</code> 来查看你当前使用的字体名称、
+<h2 id="中英文只设置一种字体">中英文只设置一种字体</h2>
+<p>把光标放到你所在的字体上，命令 <code>M-x describe-font</code> 来查看你当前使用的字体名称、<br>
 字号大小.  显示的信息是相对古老的描述方式, 字号也采用emacs自己的大小</p>
 <p>把字体信息拷贝, 写入如下代码:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(set-default-font &quot;-outline-Yahei Mono-normal-normal-normal-mono-20-*-*-*-c-*-iso8859-1&quot;)</span><br></pre></td></tr></table></figure>
-
-<p>实际上 <code>set-default-font</code> 函数在 emacs 23 已经过时, 使用 <code>set-frame-font</code> 代替,
+<p>实际上 <code>set-default-font</code> 函数在 emacs 23 已经过时, 使用 <code>set-frame-font</code> 代替,<br>
 字体信息也可以使用更现代的方式:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(set-frame-font &quot;Yahei Mono-12&quot;)</span><br></pre></td></tr></table></figure>
-
-<p>“Yahei Mono”是在菜单 “Options-&gt; Set Default Font” 看到的字体名称, “-12” 是字号大小.</p>
+<p>&quot;Yahei Mono&quot;是在菜单 “Options-&gt; Set Default Font” 看到的字体名称, “-12” 是字号大小.</p>
 <p>使用这种方法设置字体, 在等高或者等宽方面, 总不舒服, 而且在<code>C-x C-=</code> 或者 <code>C-x C--</code> 增大减小字体时, 只有英文变化.</p>
-<h2 id="进阶设置"><a href="#进阶设置" class="headerlink" title="进阶设置"></a>进阶设置</h2><p>参考文章:</p>
+<h2 id="进阶设置">进阶设置</h2>
+<p>参考文章:</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/eadle/p/10658661.html">emacs 字体选择机制</a></li>
 <li><a target="_blank" rel="noopener" href="http://baohaojun.github.io/perfect-emacs-chinese-font.html">狠狠折弯了一把emacs中文字体</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/penggy/p/7475831.html">emacs中英文等宽字体设置</a></li>
 <li><a target="_blank" rel="noopener" href="https://archive.casouri.cat/note/2019/emacs-%E5%AD%97%E4%BD%93%E4%B8%8E%E5%AD%97%E4%BD%93%E9%9B%86/">Emacs 字体与字符集</a></li>
 </ul>
-<p><a target="_blank" rel="noopener" href="https://www.gnu.org/software/emacs/manual/html_node/elisp/Font-Selection.html">emacs文档: font selection</a> 解释:
+<p><a target="_blank" rel="noopener" href="https://www.gnu.org/software/emacs/manual/html_node/elisp/Font-Selection.html">emacs文档: font selection</a> 解释:<br>
 emacs在把一个字符编码绘制到屏幕前, 会根据它的face属性(<a target="_blank" rel="noopener" href="https://www.gnu.org/software/emacs/manual/html_node/elisp/Displaying-Faces.html">文档</a> ), 选择字体.</p>
 <blockquote>
 <p>无论是Wiki还是能找到的资料，对于Face的定义都是”关于要显示出来的东西的外在属性的定义“，包括font的属性（family，width，slant等等），还有颜色、下划线等等等等（Emacs wiki上甚至说“我们需要一个明确的定义”）。话句话说，face指定了我们会看到什么东西。</p>

@@ -15,17 +15,17 @@ Emacs 的字体设置比较繁杂, 还能对不同的字符集设置不同的字
 
 1. Shift+鼠标左键, 对当前buffer的字体, 改变、增大、减小、恢复默认.
 
-> <S-down-mouse-1> (translated from <S-mouse-1>) at that spot runs the command
-> mouse-appearance-menu (found in global-map), which is an interactive compiled
-> Lisp function in ‘mouse.el’.
+> \<S-down-mouse-1\> (translated from \<S-mouse-1\>) at that spot runs the command
+> mouse-appearance-menu (found in global-map), which is an interactive
+> compiled Lisp function in ‘mouse.el’.
 >
-> It is bound to <S-down-mouse-1>.
+> It is bound to \<S-down-mouse-1\>.
 >
 > (mouse-appearance-menu EVENT)
 >
 > Show a menu for changing the default face in the current buffer.
 
-2.  菜单 "Options-> Set Default Font"
+2.  菜单 "Options-\> Set Default Font"
 
 ## 中英文只设置一种字体 ##
 
@@ -46,7 +46,7 @@ Emacs 的字体设置比较繁杂, 还能对不同的字符集设置不同的字
 (set-frame-font "Yahei Mono-12")
 ```
 
-"Yahei Mono"是在菜单 "Options-> Set Default Font" 看到的字体名称, "-12" 是字号大小.
+"Yahei Mono"是在菜单 "Options-\> Set Default Font" 看到的字体名称, "-12" 是字号大小.
 
 使用这种方法设置字体, 在等高或者等宽方面, 总不舒服, 而且在`C-x C-=` 或者 `C-x
 C--` 增大减小字体时, 只有英文变化.

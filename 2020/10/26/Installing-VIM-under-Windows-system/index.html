@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
+  </script>
+
+  <meta name="description" content="记得第一次学vim是2008年, 跟着 vimtutor 以及 善用佳软 的新 浪博客学的.  后来又学了emacs, 就把vim放弃了.  主要是因为vim输入中文问题.  现在的 主力编辑器还是 emacs + evil. 本文记录安装以及配置过程, 以方便将来在新电脑上迁移.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Windows 系统下 Gvim 安装配置">
+<meta property="og:url" content="http://example.com/2020/10/26/Installing-VIM-under-Windows-system/index.html">
+<meta property="og:site_name" content="学而时习之">
+<meta property="og:description" content="记得第一次学vim是2008年, 跟着 vimtutor 以及 善用佳软 的新 浪博客学的.  后来又学了emacs, 就把vim放弃了.  主要是因为vim输入中文问题.  现在的 主力编辑器还是 emacs + evil. 本文记录安装以及配置过程, 以方便将来在新电脑上迁移.">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-10-26T14:34:58.000Z">
+<meta property="article:modified_time" content="2020-10-26T14:34:58.000Z">
+<meta property="article:author" content="Kang Dalei">
+<meta property="article:tag" content="vim">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2020/10/26/Installing-VIM-under-Windows-system/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Windows 系统下 Gvim 安装配置 | 学而时习之</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">学而时习之</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="home                          //首页 fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="archive          //归档 fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="th           //分类 fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="tags                     //标签 fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="user                   //关于 fa-fw"></i>关于</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Gvim"><span class="nav-number">1.</span> <span class="nav-text">安装Gvim</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BB%E9%A2%98%E9%85%8D%E8%89%B2"><span class="nav-number">3.</span> <span class="nav-text">主题配色</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85vim-plugin%E6%8F%92%E4%BB%B6%E7%AE%A1%E7%90%86%E5%99%A8"><span class="nav-number">4.</span> <span class="nav-text">安装vim-plugin插件管理器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95%E8%87%AA%E5%8A%A8%E5%88%87%E6%8D%A2%E6%8F%92%E4%BB%B6%E9%85%8D%E7%BD%AE%EF%BC%9A"><span class="nav-number">5.</span> <span class="nav-text">中文输入法自动切换插件配置：</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Kang Dalei</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/26/Installing-VIM-under-Windows-system/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Kang Dalei">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="学而时习之">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Windows 系统下 Gvim 安装配置
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-10-26 22:34:58" itemprop="dateCreated datePublished" datetime="2020-10-26T22:34:58+08:00">2020-10-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>记得第一次学vim是2008年, 跟着 vimtutor 以及 <a target="_blank" rel="noopener" href="http://xbeta.info/">善用佳软</a> 的新
+浪博客学的.  后来又学了emacs, 就把vim放弃了.  主要是因为vim输入中文问题.  现在的
+主力编辑器还是 emacs + evil.</p>
+<p>本文记录安装以及配置过程, 以方便将来在新电脑上迁移.</p>
+<a id="more"></a>
+
+<h2 id="安装Gvim"><a href="#安装Gvim" class="headerlink" title="安装Gvim"></a>安装Gvim</h2><p><a target="_blank" rel="noopener" href="https://www.vim.org/">官网</a> <a target="_blank" rel="noopener" href="https://www.vim.org/download.php">下载地址</a></p>
+<p>有时大陆打开, 会有问题.  这里分享一个坚果云链结 <a target="_blank" rel="noopener" href="https://www.jianguoyun.com/p/DauixVMQtp6cBhjWnMgD">gvim80-586.exe</a></p>
+<h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><p>windows下配置文件 <code>_vimrc</code> 放在 <code>C:\Users\&lt;usename&gt;</code> 下</p>
+<p>目前的配置如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br></pre></td><td class="code"><pre><span class="line">&quot;keymap &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line"></span><br><span class="line">imap jj &lt;esc&gt;</span><br><span class="line"></span><br><span class="line">let mapleader &#x3D; &quot;\&lt;Space&gt;&quot;</span><br><span class="line">&quot;let mapleader &#x3D; &quot;,&quot;</span><br><span class="line">nnoremap &lt;Leader&gt;sv :source ~&#x2F;_vimrc&lt;CR&gt;</span><br><span class="line">nnoremap &lt;Leader&gt;ev :tabnew ~&#x2F;_vimrc&lt;CR&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">nnoremap &lt;Leader&gt;bt :call libcallnr</span><br><span class="line">            \(&quot;c:\\Users\\kdl\\.vim\\plugged\\VimTweak\\vimtweak.dll&quot;, &quot;SetAlpha&quot;, 180)&lt;CR&gt;</span><br><span class="line">            \:set nonumber&lt;CR&gt;&lt;CR&gt;</span><br><span class="line">nnoremap &lt;Leader&gt;br :call libcallnr</span><br><span class="line">            \(&quot;c:\\Users\\kdl\\.vim\\plugged\\VimTweak\\vimtweak.dll&quot;, &quot;SetAlpha&quot;, 255)&lt;CR&gt;</span><br><span class="line">            \:set number&lt;CR&gt;</span><br><span class="line"></span><br><span class="line">&quot;General&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">set nocompatible  &quot;去掉讨厌的有关vi一致性模式，避免以前版本的一些bug和局限</span><br><span class="line">syntax on  &quot;语法高亮</span><br><span class="line">set showcmd</span><br><span class="line">set showmode</span><br><span class="line">set hlsearch &quot; 搜索高亮</span><br><span class="line">set incsearch &quot; 增量查找</span><br><span class="line">&quot;set is &quot; 未输入完毕就开始搜索</span><br><span class="line">set showmatch</span><br><span class="line">set backspace&#x3D;indent,eol,start &quot;退格键正常，去掉与vi的一致性</span><br><span class="line">&quot; backspace，h，左右方向键，跨行作用</span><br><span class="line">set whichwrap&#x3D;b,h,&lt;,&gt;,[,]</span><br><span class="line">&quot; Vim 的默认寄存器和系统剪贴板共享</span><br><span class="line">set clipboard+&#x3D;unnamed</span><br><span class="line"></span><br><span class="line">set ruler &quot;显示光标行号列号</span><br><span class="line">set autoread &quot;文件改动时，自动载入</span><br><span class="line">set number &quot;显示行号</span><br><span class="line">set wrap &quot;自动折行</span><br><span class="line">set textwidth&#x3D;0 &quot;启动后默认值78，会自动插入回车</span><br><span class="line">&quot;set tw&#x3D;80</span><br><span class="line">&quot; 保留历史记录</span><br><span class="line">set history&#x3D;400</span><br><span class="line"></span><br><span class="line">&quot;缩进设置--------------------------------------------</span><br><span class="line">set shiftwidth&#x3D;4 &quot;自动缩进字符数</span><br><span class="line">set tabstop&#x3D;4  &quot; 制表符宽度</span><br><span class="line">set expandtab   &quot;自动把tab转成空格，</span><br><span class="line">&quot;如果此时需要输入真正的 tab，则输入 Ctrl+V, tab，在 Windows 下是 Ctrl+Q, tab</span><br><span class="line">set smarttab</span><br><span class="line">set shiftwidth&#x3D;4  &quot;表示每一级缩进的长度</span><br><span class="line">set softtabstop&#x3D;4  &quot;编辑模式的时候按退格键的时候退回缩进的长度</span><br><span class="line">filetype indent on &quot;文件类型检测</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&quot; 状态栏-------------------------------</span><br><span class="line">set laststatus&#x3D;2 &quot;显示状态栏</span><br><span class="line">set statusline&#x3D;[B:%n]\   &quot;缓冲区编号</span><br><span class="line">&quot;set statusline+&#x3D;%9.20F\   &quot;全路径文件名，显示最短9-20个字符</span><br><span class="line">set statusline+&#x3D;%t\    &quot;文件名，无路径</span><br><span class="line">set statusline+&#x3D;%m%r%h%w\</span><br><span class="line">set statusline+&#x3D;%&#x3D; &quot;左对齐和右对齐分界</span><br><span class="line">set statusline+&#x3D;Ln:%l\&#x2F;%L,\ Col:%v\</span><br><span class="line">set statusline+&#x3D;[%p%%]\</span><br><span class="line">set statusline+&#x3D;[%&#123;&amp;ff&#125;:%&#123;&amp;fenc!&#x3D;&#39;&#39;?&amp;fenc:&amp;enc&#125;:%&#123;(&amp;bomb?\&quot;,BOM\&quot;:\&quot;\&quot;)&#125;]\</span><br><span class="line">set statusline+&#x3D;[%Y]\ &quot;文件类型</span><br><span class="line">&quot;set statusline+&#x3D;%&#123;strftime(\&quot;%d&#x2F;%m&#x2F;%y\ -\ %H:%M\&quot;)&#125;\</span><br><span class="line">&quot;set statusline&#x3D;%1*\%&lt;%.50F\             &quot;显示文件名和文件路径 (%&lt;应该可以去掉)</span><br><span class="line">&quot;set statusline+&#x3D;%3*\%&#123;&amp;ff&#125;\[%&#123;&amp;fenc&#125;]\ %*   &quot;显示文件编码类型</span><br><span class="line">&quot;set statusline+&#x3D;%4*\ row:%l&#x2F;%L,col:%c\ %*   &quot;显示光标所在行和列</span><br><span class="line">&quot;set statusline+&#x3D;%5*\%3p%%\%*            &quot;显示光标前文本所占总文本的比例</span><br><span class="line">&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&quot;Lang &amp; Encoding&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">&quot;编码设置</span><br><span class="line">set encoding&#x3D;utf-8</span><br><span class="line">set fileencodings&#x3D;utf-8,gbk,ucs-bom,cp936</span><br><span class="line">&quot;set fileencoding&#x3D;utf-8 &quot;强制以utf-8保存文件</span><br><span class="line">&quot;解决菜单乱码</span><br><span class="line">set langmenu&#x3D;zh_CN.utf-8</span><br><span class="line">source $VIMRUNTIME&#x2F;delmenu.vim</span><br><span class="line">source $VIMRUNTIME&#x2F;menu.vim</span><br><span class="line">&quot;解决consle输出乱码</span><br><span class="line">language messages zh_CN.utf-8</span><br><span class="line">set termencoding&#x3D;gbk</span><br><span class="line"></span><br><span class="line">&quot;防止特殊符号无法正常显示。在 Unicode &quot;中，许多来自不同语言的字符，</span><br><span class="line">&quot;如果字型足够近似的话，会把它们放在同一个编码中。但在不同编码中，字</span><br><span class="line">&quot;符的宽度是不一样的。例如中文汉语拼音中的 &quot;ā 就很宽，而欧洲语言中</span><br><span class="line">&quot;同样的字符就很窄。当 VIM 工作在 Unicode &quot;状态时，遇到这些宽度不明</span><br><span class="line">&quot;的字符时，默认使用窄字符，这会导致中文的破折号“——”非常短，五角</span><br><span class="line">&quot;星“★”等符号只能显示一半。因此，我们需要设置 &quot;ambiwidth&#x3D;double 来</span><br><span class="line">&quot;解决这个问题。</span><br><span class="line">set ambiwidth&#x3D;double</span><br><span class="line"></span><br><span class="line">&quot;GUI&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">set guifont&#x3D;Yahei_Mono:h12:cANSI</span><br><span class="line">&quot;</span><br><span class="line">&quot;if has(&quot;gui_running&quot;)</span><br><span class="line">&quot;    &quot;au GUIEnter * simalt ~x  &quot; 窗口启动时自动最大化</span><br><span class="line">&quot;    &quot;set guioptions-&#x3D;m       &quot; 隐藏菜单栏</span><br><span class="line">&quot;    &quot;set guioptions-&#x3D;T        &quot; 隐藏工具栏</span><br><span class="line">&quot;    &quot;set guioptions-&#x3D;L       &quot; 隐藏左侧滚动条</span><br><span class="line">&quot;    &quot;set guioptions-&#x3D;r       &quot; 隐藏右侧滚动条</span><br><span class="line">&quot;    &quot;set guioptions-&#x3D;b       &quot; 隐藏底部滚动条</span><br><span class="line">&quot;    &quot;set showtabline&#x3D;0       &quot; 隐藏Tab栏</span><br><span class="line">&quot;endif</span><br><span class="line"></span><br><span class="line">set guioptions-&#x3D;r</span><br><span class="line">set guioptions-&#x3D;m</span><br><span class="line">set guioptions-&#x3D;T</span><br><span class="line">&quot;&lt;F2&gt;切换菜单和工具栏显示隐藏</span><br><span class="line">map &lt;silent&gt; &lt;F2&gt; :if &amp;guioptions &#x3D;~# &#39;T&#39; &lt;Bar&gt;</span><br><span class="line">        \set guioptions-&#x3D;T &lt;Bar&gt;</span><br><span class="line">        \set guioptions-&#x3D;m &lt;bar&gt;</span><br><span class="line">    \else &lt;Bar&gt;</span><br><span class="line">        \set guioptions+&#x3D;T &lt;Bar&gt;</span><br><span class="line">        \set guioptions+&#x3D;m &lt;Bar&gt;</span><br><span class="line">    \endif&lt;CR&gt;</span><br><span class="line"></span><br><span class="line">&quot;颜色主题设置</span><br><span class="line">&quot;hi Normal guibg&#x3D;#99cc99 guifg&#x3D;Black   &quot;gui颜色设置</span><br><span class="line">&quot;hi LineNr guibg&#x3D;#003366 guifg&#x3D;#99ccff ctermbg&#x3D;7777 ctermfg&#x3D;blue  &quot;cmd颜色设置</span><br><span class="line">set cursorline &quot;光标所在行高亮</span><br><span class="line">&quot;当前光标行颜色设置</span><br><span class="line">&quot;hi CursorLine cterm&#x3D;NONE ctermbg&#x3D;darkred ctermfg&#x3D;white guibg&#x3D;#66cc99 guifg&#x3D;black</span><br><span class="line"></span><br><span class="line">set background&#x3D;light &quot;亮色</span><br><span class="line">&quot;set background&#x3D;dark</span><br><span class="line">colorscheme solarized</span><br><span class="line">&quot;Format &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&quot;Plugin &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">&quot; 插件配置</span><br><span class="line"></span><br><span class="line">call plug#begin(&#39;~&#x2F;.vim&#x2F;plugged&#39;) &quot;Vim 插件的安装路径，可以自定义。</span><br><span class="line">&quot;~ 表示系统路径，在windows下为 C:&#x2F;User&#x2F;username&#x2F;</span><br><span class="line">&quot;:PlugInstall</span><br><span class="line">Plug &#39;godlygeek&#x2F;tabular&#39; &quot;必要插件，安装在vim-markdown前面</span><br><span class="line">Plug &#39;plasticboy&#x2F;vim-markdown&#39;</span><br><span class="line">&quot;Plug &#39;mzlogin&#x2F;vim-markdown-toc&#39;</span><br><span class="line">Plug &#39;lyokha&#x2F;vim-xkbswitch&#39; &quot;退出insert模式，自动输入法切换</span><br><span class="line">Plug &#39;vim-scripts&#x2F;VimTweak&#39; &quot;windows下gvim背景透明</span><br><span class="line">call plug#end()</span><br><span class="line"></span><br><span class="line">let g:XkbSwitchEnabled     &#x3D; 1</span><br><span class="line">let g:XkbSwitchIMappings   &#x3D; [&#39;cn&#39;]</span><br><span class="line">let g:XkbSwitchIMappingsTr &#x3D; &#123;&#39;cn&#39;: &#123;&#39;&lt;&#39;: &#39;&#39;, &#39;&gt;&#39;: &#39;&#39;&#125;&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&quot;Function &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="主题配色"><a href="#主题配色" class="headerlink" title="主题配色"></a>主题配色</h2><p>vim自带的一些主题.</p>
+<p>上述配置文件使用了 <code> solarized</code>
+<a target="_blank" rel="noopener" href="https://github.com/altercation/vim-colors-solarized">github</a></p>
+<p>把 solarized.vim 放入gvim安装目录的 colors 文件夹下. 我的目录位置是:</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">C:\Program Files (x86)\Vim\vim80\colors</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>solarized 的readme中说, 可以把 solarized.vim 放入 <code>~/.vim/colors/</code> 中. 我这里报
+错, 说找不到这个文件.</p>
+<p>其实, 放到 <code>C:\Users\&lt;username&gt;\vimfiles\colors </code> 这个目录也可以. 这个目录应该
+是vim安装程序生成的.</p>
+<h2 id="安装vim-plugin插件管理器"><a href="#安装vim-plugin插件管理器" class="headerlink" title="安装vim-plugin插件管理器"></a>安装vim-plugin插件管理器</h2><p>首先, 建立 .vim目录.  vim 的插件集中存放在 ~/.vim 目录中.</p>
+<p>windows的资源管理器无法建立 <code>.</code>开头的文件夹, 可以在cmd命令行窗口创建</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir .vim</span><br><span class="line">mkdir .vim\plugged</span><br></pre></td></tr></table></figure>
+
+<p>使用 <a target="_blank" rel="noopener" href="https://github.com/junegunn/vim-plug">plug.vim</a> 插件管理器.</p>
+<p>安装方法:</p>
+<p>Windows (PowerShell)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">md ~\vimfiles\autoload</span><br><span class="line">$uri &#x3D; &#39;https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;junegunn&#x2F;vim-plug&#x2F;master&#x2F;plug.vim&#39;</span><br><span class="line">(New-Object Net.WebClient).DownloadFile(</span><br><span class="line">  $uri,</span><br><span class="line">  $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath(</span><br><span class="line">    &quot;~\vimfiles\autoload\plug.vim&quot;</span><br><span class="line">  )</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>如果出错, 就手工把下载的 plug.vim 插件放入  <code>~\vimfiles\autoload\</code> 目录</p>
+<p>进入vim后 :PlugInstall
+注意大小写！</p>
+<h2 id="中文输入法自动切换插件配置："><a href="#中文输入法自动切换插件配置：" class="headerlink" title="中文输入法自动切换插件配置："></a>中文输入法自动切换插件配置：</h2><p>参考文章:</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/49411224">解决恼人的vim中文输入法切换视频</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/25744174/answer/506519877">vim自动切换输入法</a></li>
+</ol>
+<p>步骤:</p>
+<ol>
+<li>安装 lyokha/vim-xkbswitch 插件 <a target="_blank" rel="noopener" href="https://github.com/lyokha/vim-xkbswitch">https://github.com/lyokha/vim-xkbswitch</a>. 配置文件如果生效, 自动下载, 并配置.</li>
+<li>windows系统安装美式键盘. 设置 –&gt; 时间和语言 –&gt; 语言 –&gt; 添加首选的语言，选择“英语(美国)”</li>
+<li>下载 libxkbswitch64.dll <a target="_blank" rel="noopener" href="https://github.com/DeXP/xkb-switch-win">https://github.com/DeXP/xkb-switch-win</a> , 放入和gvim.exe同目录中。</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/vim/" rel="tag"># vim</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/10/19/emacs-font-settings/" rel="prev" title="Emacs 字体设置">
+                  <i class="fa fa-chevron-left"></i> Emacs 字体设置
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kang Dalei</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

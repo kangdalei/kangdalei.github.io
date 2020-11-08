@@ -151,6 +151,24 @@ description: 这是显示在首页的概述，正文内容均会被隐藏。
 首页就会显示这条以上的所有内容，隐藏接下来的所有内容。
 
 
+## 插件 plugs ##
+
+### footnote 脚注 ###
+
+[github](https://github.com/LouisBarranqueiro/hexo-footnotes)
+
+```
+Installation
+
+npm install hexo-footnotes --save
+
+If Hexo detect automatically all plugins, that's all.
+
+If that is not the case, register the plugin in your _config.yml file :
+
+plugins:
+  - hexo-footnotes
+```
 
 
 

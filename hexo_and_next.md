@@ -46,7 +46,10 @@ npm install -g hexo-cli
 打开 hexo
 
 ```
+# 生成页面
 hexo g
+
+# 开启本地服务器
 hexo s
 ```
 
@@ -150,6 +153,32 @@ description: 这是显示在首页的概述，正文内容均会被隐藏。
 
 首页就会显示这条以上的所有内容，隐藏接下来的所有内容。
 
+
+## backup 备份 ##
+
+使用插件 备份源文件
+
+安装插件 `hexo-git-backup`
+
+``` shell
+npm install hexo-git-backup --save
+```
+
+配置 _config.yml 文件
+
+``` shell
+backup:
+    type: git
+    repository:
+       github: git@github.com:kangdalei/kangdalei.github.io.git,backup
+```
+
+执行备份:
+
+``` shell
+hexo b
+hexo backup
+```
 
 ## 插件 plugs ##
 

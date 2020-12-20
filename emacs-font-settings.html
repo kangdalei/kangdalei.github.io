@@ -22,22 +22,21 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
   </script>
 
-  <meta name="description" content="Emacs的键盘宏在执行过程中, 维护了一个计数器, 按照执行次数累加, 还可以插入缓冲区. 这使宏在每次执行时, 可以产生变化, 为诸如生成一列递增数字之类的任务, 变得轻松. 下面是Emacs 手册 17.3 The keyboard Macro Counter 译文.">
+  <meta name="description" content="Emacs 的字体设置比较繁杂, 还能对不同的字符集设置不同的字体, 一些技巧记录于此.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="The Emacs&#39;s Keyboard Macro Counter">
-<meta property="og:url" content="http://example.com/2020/11/07/The-Emacs-s-Keyboard-Macro-Counter/index.html">
+<meta property="og:title" content="Emacs 字体设置">
+<meta property="og:url" content="http://example.com/emacs-font-settings.html">
 <meta property="og:site_name" content="学而时习之">
-<meta property="og:description" content="Emacs的键盘宏在执行过程中, 维护了一个计数器, 按照执行次数累加, 还可以插入缓冲区. 这使宏在每次执行时, 可以产生变化, 为诸如生成一列递增数字之类的任务, 变得轻松. 下面是Emacs 手册 17.3 The keyboard Macro Counter 译文.">
+<meta property="og:description" content="Emacs 的字体设置比较繁杂, 还能对不同的字符集设置不同的字体, 一些技巧记录于此.">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-11-07T14:24:44.000Z">
-<meta property="article:modified_time" content="2020-11-07T16:00:00.000Z">
+<meta property="article:published_time" content="2020-10-19T00:55:16.000Z">
+<meta property="article:modified_time" content="2020-10-19T00:55:16.000Z">
 <meta property="article:author" content="Kang Dalei">
-<meta property="article:tag" content="Emacs">
-<meta property="article:tag" content="译文">
+<meta property="article:tag" content="emacs">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/2020/11/07/The-Emacs-s-Keyboard-Macro-Counter/">
+<link rel="canonical" href="http://example.com/emacs-font-settings.html">
 
 
 <script class="page-configurations">
@@ -50,7 +49,7 @@
   };
 </script>
 
-  <title>The Emacs's Keyboard Macro Counter | 学而时习之</title>
+  <title>Emacs 字体设置 | 学而时习之</title>
   
 
 
@@ -170,7 +169,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -182,6 +181,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B0%83%E5%87%BA%E5%AD%97%E4%BD%93%E8%AE%BE%E7%BD%AE%E8%8F%9C%E5%8D%95"><span class="nav-number">1.</span> <span class="nav-text">调出字体设置菜单</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%AD%E8%8B%B1%E6%96%87%E5%8F%AA%E8%AE%BE%E7%BD%AE%E4%B8%80%E7%A7%8D%E5%AD%97%E4%BD%93"><span class="nav-number">2.</span> <span class="nav-text">中英文只设置一种字体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9B%E9%98%B6%E8%AE%BE%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text">进阶设置</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -242,7 +242,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/11/07/The-Emacs-s-Keyboard-Macro-Counter/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/emacs-font-settings.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -255,7 +255,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          The Emacs's Keyboard Macro Counter
+          Emacs 字体设置
         </h1>
 
         <div class="post-meta-container">
@@ -266,15 +266,8 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2020-11-07 22:24:44" itemprop="dateCreated datePublished" datetime="2020-11-07T22:24:44+08:00">2020-11-07</time>
+      <time title="创建时间：2020-10-19 08:55:16" itemprop="dateCreated datePublished" datetime="2020-10-19T08:55:16+08:00">2020-10-19</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-11-08 00:00:00" itemprop="dateModified" datetime="2020-11-08T00:00:00+08:00">2020-11-08</time>
-      </span>
 
   
 </div>
@@ -286,81 +279,50 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>Emacs的键盘宏在执行过程中, 维护了一个计数器, 按照执行次数累加, 还可以插入缓冲区.
-这使宏在每次执行时, 可以产生变化, 为诸如生成一列递增数字之类的任务, 变得轻松.</p>
-<p>下面是Emacs 手册 <a target="_blank" rel="noopener" href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Keyboard-Macro-Counter.html">17.3 The keyboard Macro Counter</a> 译文.</p>
+        <p>Emacs 的字体设置比较繁杂, 还能对不同的字符集设置不同的字体, 一些技巧记录于此.</p>
 <a id="more"></a>
 
-<hr>
-<p>17.3 键盘宏计数器</p>
-<p>每个键盘宏都有一个关联的计数器.  当您开始定义宏时, 计数器初始化为0.  当前计数器
-允许您在缓冲区中插入一个数字, 该数字取决于此宏被调用的次数.  通常情况下, 计数器
-的数字在每次插入缓冲区后, 其值也会递增.</p>
-<p>除了当前计数器之外, 键盘宏还保留上一个计数器, 该计数器记录当前计数器上次递增或设
-置时的值.  请注意, 将当前计数器递增0, 例如, 使用<code>C-u 0 C-x C-k C-i</code>, 也会将当前计
-数器的值存入上一个计数器值.</p>
-<ul>
-<li><p>F3</p>
-<p>  在键盘宏定义的时候, 在缓冲区中插入键盘宏计数器值（kmacro-start-macro-or-insert-counter）.</p>
-</li>
-<li><p>C-x C-k C-i</p>
-<p>  在缓冲区中插入键盘宏计数器值（kmacro-insert-counter）. (译注: 每次插入都增加1或前缀参数大小)</p>
-</li>
-<li><p>C-x C-k C-C</p>
-<p>  设置键盘宏计数器的值（kmacro-set-counter）, 提示输入或前缀参数大小.</p>
-</li>
-<li><p>C-x C-k C-a</p>
-<p>  将前缀参数加到键盘宏计数器的值上（kmacro-add-counter）.</p>
-</li>
-<li><p>C-x C-k C-f</p>
-<p>  指定插入键盘宏计数器的格式（kmacro-set-format）.</p>
-</li>
-</ul>
-<p>定义键盘宏时, 命令<code>F3</code>（kmacro-start-macro-or-insert-counter）将键盘宏计数器的当
-前值插入缓冲区, 并将计数器递增1.  （如果未定义宏, 则<code>F3</code>将开始宏定义.  请参阅基本
-键盘宏.） 您可以使用数字前缀参数指定不同的增量.  如果您只指定一个<code>C-u</code>前缀, 它将
-插入上一个计数器值, 而不会更改当前值.</p>
-<p>作为一个例子, 让我们展示如何使用键盘宏计数器来构建一个带编号的列表.  考虑以下按
-键顺序：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">F3 C-a F3 . SPC F4</span><br></pre></td></tr></table></figure>
+<h2 id="调出字体设置菜单"><a href="#调出字体设置菜单" class="headerlink" title="调出字体设置菜单"></a>调出字体设置菜单</h2><ol>
+<li>Shift+鼠标左键, 对当前buffer的字体, 改变、增大、减小、恢复默认.</li>
+</ol>
+<blockquote>
+<p>&lt;S-down-mouse-1&gt; (translated from &lt;S-mouse-1&gt;) at that spot runs the command
+mouse-appearance-menu (found in global-map), which is an interactive
+compiled Lisp function in ‘mouse.el’.</p>
+<p>It is bound to &lt;S-down-mouse-1&gt;.</p>
+<p>(mouse-appearance-menu EVENT)</p>
+<p>Show a menu for changing the default face in the current buffer.</p>
+</blockquote>
+<ol start="2">
+<li>菜单 “Options-&gt; Set Default Font”</li>
+</ol>
+<h2 id="中英文只设置一种字体"><a href="#中英文只设置一种字体" class="headerlink" title="中英文只设置一种字体"></a>中英文只设置一种字体</h2><p>把光标放到你所在的字体上，命令 <code>M-x describe-font</code> 来查看你当前使用的字体名称、
+字号大小.  显示的信息是相对古老的描述方式, 字号也采用emacs自己的大小</p>
+<p>把字体信息拷贝, 写入如下代码:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(set-default-font &quot;-outline-Yahei Mono-normal-normal-normal-mono-20-*-*-*-c-*-iso8859-1&quot;)</span><br></pre></td></tr></table></figure>
 
-<p>作为此键盘宏定义的一部分, 字符串”0. “插入到当前行的开头.  如果现在移动到缓冲区
-的其他位置并键入F4以调用宏, 则字符串”1. “插入到该行的开头.  后续调用插入
-“2. “ 和”3. “等等.</p>
-<p>命令 <code>C-x C-k C-i</code> （kmacro-insert-counter）的作用与 <code>F3</code> 相同, 但即使没有键盘宏
-被定义时, 它也可以使用.  当没有键盘宏被定义或执行时, 这个命令就把当前宏环
-(keyboard macro ring)中第一个宏的计数器值插入缓冲区, 然后递增.<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup></p>
-<p>命令 <code>C-x C-k C-C</code> （kmacro-set-counter）将当前宏计数器设置为数值参数的值.  如果
-在宏定义时使用这个命令, 它会在宏的每次重复执行时, 进行同样操作. 如果在执行宏时,
-只指定 <code>C-u</code> 作为<code>C-x C-k C-C</code> 的前缀, 则会将计数器重置为当前宏重复开始时的值
-（撤消此重复中迄今为止的任何增量）.<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup></p>
-<p>命令 <code>C-x C-k C-a</code> （kmacro-add-counter）将前缀参数添加到当前宏计数器.  如果只使
-用<code>C-u</code> 为参数, 将计数器重置为任何键盘宏插入的最后一个值.  （通常, 当您使用此命
-令时, 最后一个插入值是在同一个宏中, 并且是同一个计数器. ）</p>
-<p>命令 <code>C-x C-k C-f</code> （kmacro-set-format）提示输入插入宏计数器时要使用的格式.  默
-认格式为‘%d’, 这意味着插入十进制数字, 而不使用任何填充.  <code>C-x C-k C-f</code>后直接回
-车退出, 格式会重置为此默认值.  您可以指定format函数接受的任何格式字符串, 只要是
-有意义的一个的整数参数（请参阅emacslisp参考手册中的 <a target="_blank" rel="noopener" href="https://www.gnu.org/software/emacs/manual/html_node/elisp/Formatting-Strings.html#Formatting-Strings"> Formatting
-Strings</a>
-）.  在minibuffer中输入格式字符串时, 不要将它放在双引号内.</p>
-<p>如果在未定义或执行键盘宏时使用此命令, 则新格式会影响所有后续宏定义.  现有宏继续
-使用定义时有效的格式.  如果在定义键盘宏时设置格式, 则这会影响从那时起定义的宏,
-但不会影响后续宏.  在每个步骤中, 宏的执行都将使用定义期间该步骤中有效的格式.  在
-执行宏期间对宏格式所做的更改与在宏定义期间所做的相应更改一样, 不会对后续宏产生任
-何影响.</p>
-<p><code>C-x C-k C-f</code> 设置的格式不影响寄存器中存储的数字的插入.</p>
-<p>如果使用寄存器作为计数器, 在宏的每次重复时递增寄存器, 则可以实现与键盘宏计数器相
-同的功能.  参见 <a target="_blank" rel="noopener" href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Number-Registers.html#Number-Registers"> Number
-Registers</a>.
-大多数情况下, 使用键盘宏计数器比较简单.</p>
-<hr>
-<p>Emacs 的宏定义和执行, 相比vim宏来说, 默认键绑定更方便!</p>
-<p>F3 开始宏定义, 或插入宏计数器值.
-F4 结束宏定义, 或调用最后一个宏定义.</p>
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">译注: <a target="_blank" rel="noopener" href="https://www.emacswiki.org/emacs/EmacsKeyboardMacroCounter">Emacs
-WiKi</a> 解释的更清楚
-<code>C-x C-k C-i</code> 插入键盘宏计数器的当前值，并将计数器递增1。可以使用数字前缀参数来
-指定不同的增量。如果仅指定 <code>C-u</code> 前缀，则重复最后插入的计数器值，而不增加计数器值。</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">译注: 也就是说一个宏, 重复执行了几次后, 想重置计数器为重复执行前的初始值, 可以按 <code>C-u C-x C-k C-c</code>.</span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>
+<p>实际上 <code>set-default-font</code> 函数在 emacs 23 已经过时, 使用 <code>set-frame-font</code> 代替,
+字体信息也可以使用更现代的方式:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(set-frame-font &quot;Yahei Mono-12&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>“Yahei Mono”是在菜单 “Options-&gt; Set Default Font” 看到的字体名称, “-12” 是字号大小.</p>
+<p>使用这种方法设置字体, 在等高或者等宽方面, 总不舒服, 而且在<code>C-x C-=</code> 或者 <code>C-x C--</code> 增大减小字体时, 只有英文变化.</p>
+<h2 id="进阶设置"><a href="#进阶设置" class="headerlink" title="进阶设置"></a>进阶设置</h2><p>参考文章:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/eadle/p/10658661.html">emacs 字体选择机制</a></li>
+<li><a target="_blank" rel="noopener" href="http://baohaojun.github.io/perfect-emacs-chinese-font.html">狠狠折弯了一把emacs中文字体</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/penggy/p/7475831.html">emacs中英文等宽字体设置</a></li>
+<li><a target="_blank" rel="noopener" href="https://archive.casouri.cat/note/2019/emacs-%E5%AD%97%E4%BD%93%E4%B8%8E%E5%AD%97%E4%BD%93%E9%9B%86/">Emacs 字体与字符集</a></li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://www.gnu.org/software/emacs/manual/html_node/elisp/Font-Selection.html">emacs文档: font selection</a> 解释:
+emacs在把一个字符编码绘制到屏幕前, 会根据它的face属性(<a target="_blank" rel="noopener" href="https://www.gnu.org/software/emacs/manual/html_node/elisp/Displaying-Faces.html">文档</a> ), 选择字体.</p>
+<blockquote>
+<p>无论是Wiki还是能找到的资料，对于Face的定义都是”关于要显示出来的东西的外在属性的定义“，包括font的属性（family，width，slant等等），还有颜色、下划线等等等等（Emacs wiki上甚至说“我们需要一个明确的定义”）。话句话说，face指定了我们会看到什么东西。</p>
+<p>同一节指出了合并face的属性的优先级。其中最低的优先级是default face，也就是我一开始查到的命令所设置的东西，使用 M-h f set-face-attribute可以得到</p>
+</blockquote>
+<p>…待续</p>
+<p>end here</p>
+
     </div>
 
     
@@ -369,19 +331,21 @@ WiKi</a> 解释的更清楚
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Emacs/" rel="tag"># Emacs</a>
-              <a href="/tags/%E8%AF%91%E6%96%87/" rel="tag"># 译文</a>
+              <a href="/tags/emacs/" rel="tag"># emacs</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/10/26/Installing-VIM-under-Windows-system/" rel="prev" title="Windows 系统下 Gvim 安装配置">
-                  <i class="fa fa-chevron-left"></i> Windows 系统下 Gvim 安装配置
+                <a href="/common-software-list.html" rel="prev" title="常用软件清单">
+                  <i class="fa fa-chevron-left"></i> 常用软件清单
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/Installing-VIM-under-Windows-system.html" rel="next" title="Windows 系统下 Gvim 安装配置">
+                  Windows 系统下 Gvim 安装配置 <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>

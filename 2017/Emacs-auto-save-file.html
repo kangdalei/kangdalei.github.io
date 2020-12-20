@@ -22,20 +22,21 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
   </script>
 
-  <meta name="description" content="本质上搞定 UUID 。VirtualBox新建虚拟磁盘时会给它分配一个独一无二的UUID， 以后迁移时需要为这个虚拟磁盘文件新建一个UUID。">
+  <meta name="description" content="Emacs的文件备份机制">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Virtualbox 迁移虚拟机文件">
-<meta property="og:url" content="http://example.com/Virtualbox-migrating-virtual-machine-files.html">
+<meta property="og:title" content="Emacs auto save file">
+<meta property="og:url" content="http://example.com/2017/Emacs-auto-save-file.html">
 <meta property="og:site_name" content="学而时习之">
-<meta property="og:description" content="本质上搞定 UUID 。VirtualBox新建虚拟磁盘时会给它分配一个独一无二的UUID， 以后迁移时需要为这个虚拟磁盘文件新建一个UUID。">
+<meta property="og:description" content="Emacs的文件备份机制">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2017-10-22T08:27:39.000Z">
-<meta property="article:modified_time" content="2020-10-18T08:27:39.000Z">
+<meta property="article:published_time" content="2017-11-11T06:32:16.000Z">
+<meta property="article:modified_time" content="2020-10-17T06:32:16.000Z">
 <meta property="article:author" content="Kang Dalei">
+<meta property="article:tag" content="emacs">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/Virtualbox-migrating-virtual-machine-files.html">
+<link rel="canonical" href="http://example.com/2017/Emacs-auto-save-file.html">
 
 
 <script class="page-configurations">
@@ -48,7 +49,7 @@
   };
 </script>
 
-  <title>Virtualbox 迁移虚拟机文件 | 学而时习之</title>
+  <title>Emacs auto save file | 学而时习之</title>
   
 
 
@@ -180,7 +181,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%AC%E6%9C%BA%E5%86%85%E8%BF%81%E7%A7%BB"><span class="nav-number">1.</span> <span class="nav-text">本机内迁移</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%8D%E5%90%8C%E6%9C%BA%E5%99%A8%E4%B8%8A%E5%A4%8D%E5%88%B6"><span class="nav-number">2.</span> <span class="nav-text">不同机器上复制</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%B4%E6%97%B6%E6%96%87%E4%BB%B6-Auto-Save-file"><span class="nav-number">1.</span> <span class="nav-text">临时文件(Auto-Save file)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A4%87%E4%BB%BD%E6%96%87%E4%BB%B6-Backup-files"><span class="nav-number">2.</span> <span class="nav-text">备份文件(Backup files)</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -241,7 +242,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/Virtualbox-migrating-virtual-machine-files.html">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2017/Emacs-auto-save-file.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -254,7 +255,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Virtualbox 迁移虚拟机文件
+          Emacs auto save file
         </h1>
 
         <div class="post-meta-container">
@@ -265,19 +266,20 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2017-10-22 16:27:39" itemprop="dateCreated datePublished" datetime="2017-10-22T16:27:39+08:00">2017-10-22</time>
+      <time title="创建时间：2017-11-11 14:32:16" itemprop="dateCreated datePublished" datetime="2017-11-11T14:32:16+08:00">2017-11-11</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-10-18 16:27:39" itemprop="dateModified" datetime="2020-10-18T16:27:39+08:00">2020-10-18</time>
+        <time title="修改时间：2020-10-17 14:32:16" itemprop="dateModified" datetime="2020-10-17T14:32:16+08:00">2020-10-17</time>
       </span>
 
   
 </div>
 
+            <div class="post-description">Emacs的文件备份机制</div>
         </div>
       </header>
 
@@ -285,32 +287,65 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>本质上搞定
-<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Universally_unique_identifier">UUID</a>
-。VirtualBox新建虚拟磁盘时会给它分配一个独一无二的UUID，
-以后迁移时需要为这个虚拟磁盘文件新建一个UUID。</p>
-<a id="more"></a>
+        <p>本文是对这篇文章
+<a target="_blank" rel="noopener" href="http://blog.useasp.net/archive/2014/07/18/emacs-temporary-files-and-backup-files-for-edited-file.aspx">Emacs的临时文件和备份文件</a>
+的细化和进一步说明.</p>
+<h1 id="临时文件-Auto-Save-file"><a href="#临时文件-Auto-Save-file" class="headerlink" title="临时文件(Auto-Save file)"></a>临时文件(Auto-Save file)</h1><p>正常情况下emacs退出后会删掉这个文件,
+所以我觉得临时文件这个汉语名字更为准确一些. Auto-Save这个名字,
+我开始以为是自动保存到原文件去的意思, 比如
+ManateeLazyCat在“Emacs：我已经十年没有按过保存按键了”
+里的意思。<a target="_blank" rel="noopener" href="https://github.com/manateelazycat/deepin-emacs/blob/master/site-lisp/extensions/lazycat/auto-save.el">auto-save.el</a></p>
+<p>但是用过一段上面的 auto-save.el 后, 我还是更喜欢emacs默认的保存方式.
+由自己决定什么时候把缓冲区中的文件保存到原文件中去. 默认情况下,
+如果输入超过300个字符或是键鼠无动作超过30秒,
+emacs就会自动把内存里的缓冲区变动保存到临时文件 #file-name# 中.
+如果由于断电等原因emacs异常退出, 没来得及保存, 可以使用 M-x recover-file
+来恢复文件.</p>
+<p>可以设置自动保存的参数, 比如:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(setq-default auto-save-timeout 15) ; 15秒无动作,自动保存</span><br><span class="line">(setq-default auto-save-interval 100) ; 100个字符间隔, 自动保存</span><br></pre></td></tr></table></figure>
 
-<ol>
-<li><h1 id="本机内迁移"><a href="#本机内迁移" class="headerlink" title="本机内迁移"></a>本机内迁移</h1></li>
-</ol>
-<p>一般用于更改默认安装路径， 把以前安装的虚拟机存储文件迁移到新目录。</p>
-<p>使用 `VBoxManage.exe clonehd` 命令。</p>
-<p>原虚拟磁盘位置： “C:\Users\lei\VirtualBoxVMs\debian9-64\debian.vmdk”</p>
-<p>迁移的目标地址：”D:\virtualbox\debian”</p>
-<p>假设 VirtualBox 安装在 “C:\ProgramFiles\Oracle\VirtualBox”， 此目录下有
-VBoxManage.exe 这个文件。</p>
-<p>在该目录运行命令行 ( 在文件夹空白地方按Shift键和鼠标右键, 有快捷菜单 )</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Program Files\Oracle\VirtualBox&gt;VBoxManage.exe clonehd &quot;C:\Users\lei\VirtualBox VMs\debian9-64\debian.vmdk&quot; &quot;D:\virtualbox\debian\debian.vmdk&quot;</span><br></pre></td></tr></table></figure>
+<h1 id="备份文件-Backup-files"><a href="#备份文件-Backup-files" class="headerlink" title="备份文件(Backup files)"></a>备份文件(Backup files)</h1><p>因为会在原目录中留下 “file-name~“ , 所以大家都比较烦. 而且现在可以通过
+<strong>git</strong> 管理版本, 所以一般关掉这个功能.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(setq make-backup-files nil)</span><br></pre></td></tr></table></figure>
 
-<p>OK， 会有进度提示。然后新建虚拟机时选择已有虚拟磁盘即可。</p>
-<ol start="2">
-<li><h1 id="不同机器上复制"><a href="#不同机器上复制" class="headerlink" title="不同机器上复制"></a>不同机器上复制</h1></li>
-</ol>
-<p>使用 `VBoxManage.exe internalcommands sethduuid` 命令.</p>
-<p>从其他机器上复制过来的虚拟磁盘文件. 假设放在了
-“D:\virtualbox\debian\debian.vmdk”</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Program Files\Oracle\VirtualBox&gt;VBoxManage.exe internalcommands sethduuid &quot;D:\virtualbox\debian\debian.vmdk&quot;</span><br></pre></td></tr></table></figure>
+<p>如果想保留这个功能, 又不想在当前目录下留下一堆 “file-name~“ 烦人,
+可以指定集中保存备份文件的目录.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">(setq</span><br><span class="line">     backup-by-copying t ; 自动备份</span><br><span class="line">     backup-directory-alist</span><br><span class="line">     &#39;((&quot;.&quot; . &quot;~&#x2F;.em_backup&quot;)) ; 自动备份在目录&quot;~&#x2F;.em_backup&quot;下</span><br><span class="line">     delete-old-versions t ; 自动删除旧的备份文件</span><br><span class="line">     kept-new-versions 3 ; 保留最近的3个备份文件</span><br><span class="line">     kept-old-versions 1 ; 保留最早的1个备份文件</span><br><span class="line">     version-control t) ; 多次备份</span><br></pre></td></tr></table></figure>
+
+<p>自动备份文件有两种模式: <strong>改名(Renaming)和复制(Copying)</strong>.
+默认是改名模式. 两种模式的区别可见 <a target="_blank" rel="noopener" href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Backup-Copying.html">18.3.2.3 Copying vs.
+Renaming</a>
+. 只有文件存在硬链接而且有多个文件名的情况下, 复制(Copying)
+模式才有意义. 在改名模式下, 其他硬链接会依然链接到备份文件上.
+而复制模式下, 其他硬链接会链接到新文件上.</p>
+<p>打开复制模式:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(setq backup-by-copying t) ;使用复制模式备份文件</span><br></pre></td></tr></table></figure>
+
+<p>参考:</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/151945/how-do-i-control-how-emacs-makes-backup-files">https://stackoverflow.com/questions/151945/how-do-i-control-how-emacs-makes-backup-files</a></p>
+<p>If you’ve ever been saved by an Emacs backup file, you probably want
+more of them, not less of them. It is annoying that they go in the
+same directory as the file you’re editing, but that is easy to change.
+You can make all backup files go into a directory by putting something
+like the following in your .emacs.</p>
+<p>(setq backup-directory-alist `((“.” . “~/.saves”)))</p>
+<p>There are a number of arcane details associated with how Emacs might
+create your backup files. Should it rename the original and write out
+the edited buffer? What if the original is linked? In general, the
+safest but slowest bet is to always make backups by copying.</p>
+<p>(setq backup-by-copying t)</p>
+<p>If that’s too slow for some reason you might also have a look at
+backup-by-copying-when-linked.</p>
+<p>Since your backups are all in their own place now, you might want more
+of them, rather than less of them. Have a look at the Emacs
+documentation for these variables (with C-h v).</p>
+<p>(setq delete-old-versions t kept-new-versions 6 kept-old-versions 2
+version-control t)</p>
+<p>Finally, if you absolutely must have no backup files:</p>
+<p>(setq make-backup-files nil)</p>
+<p>It makes me sick to think of it though.</p>
+</blockquote>
 
     </div>
 
@@ -319,18 +354,21 @@ VBoxManage.exe 这个文件。</p>
     
 
     <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/emacs/" rel="tag"># emacs</a>
+          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/Emacs-keyboard.html" rel="prev" title="Emacs & keyboard 按键二三事">
-                  <i class="fa fa-chevron-left"></i> Emacs & keyboard 按键二三事
+                <a href="/2017/Virtualbox-migrating-virtual-machine-files.html" rel="prev" title="Virtualbox 迁移虚拟机文件">
+                  <i class="fa fa-chevron-left"></i> Virtualbox 迁移虚拟机文件
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/Emacs-auto-save-file.html" rel="next" title="Emacs auto save file">
-                  Emacs auto save file <i class="fa fa-chevron-right"></i>
+                <a href="/2020/common-software-list.html" rel="next" title="常用软件清单">
+                  常用软件清单 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
